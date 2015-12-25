@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
+using System.Linq;
 using System.IO;
 using System.Windows.Forms;
 
@@ -103,23 +104,13 @@ namespace MassImageCropper
 
 		private void btnPickFolder_Click(object sender, EventArgs e)
 		{
-			fbDialog.ShowDialog();
-
-			if (fbDialog.SelectedPath.Length != 0)
-			{
-				tbSourceFolder.Text = fbDialog.SelectedPath;
-			}
+			MessageBox.Show("Drag & Drop a folder into the textbox to the left.", "Drag & Drop");
 		}
 
 
 		private void btnPickDestination_Click(object sender, EventArgs e)
 		{
-			fbDialog.ShowDialog();
-
-			if (fbDialog.SelectedPath.Length != 0)
-			{
-				tbDestFolder.Text = fbDialog.SelectedPath;
-			}
+			MessageBox.Show("Drag & Drop a folder into the textbox to the left.", "Drag & Drop");
 		}
 
 
@@ -228,22 +219,21 @@ namespace MassImageCropper
 			if (bFolders && bResolution)
 			{
 				EncoderParameters codecParameters = new EncoderParameters(1);
-				codecParameters.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, (long)hsbQuality.Value);
-				ImageCodecInfo codecInfo = FindEncoder((ImageFormat)cbImageType.SelectedItem);
+				codecParameters.Param[0]          = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, (long)hsbQuality.Value);
+				ImageCodecInfo codecInfo          = FindEncoder((ImageFormat)cbImageType.SelectedItem);
+				List<String> fileSourcePaths      = GetFilesRecursively(tbSourceFolder.Text, codecInfo.FilenameExtension);
 
-				List<String> fileSourcePaths = GetFilesRecursively(tbSourceFolder.Text, codecInfo.FilenameExtension);
-
-				progressBar.Value = 0;
+				progressBar.Value   = 0;
 				progressBar.Maximum = fileSourcePaths.Count;
 
 				if (fileSourcePaths.Count > 0)
 				{
 					foreach (String fileSourcePath in fileSourcePaths)
 					{
-						Bitmap bitmap = new Bitmap(fileSourcePath);
-						Image image = Crop(bitmap);
+						Bitmap bitmap       = new Bitmap(fileSourcePath);
+						Image image         = Crop(bitmap);
 						String fileDestPath = fileSourcePath.Replace(tbSourceFolder.Text, tbDestFolder.Text);
-						String fileDestDir = Path.GetDirectoryName(fileDestPath);
+						String fileDestDir  = Path.GetDirectoryName(fileDestPath);
 
 						if (!Directory.Exists(fileDestDir))
 						{
@@ -306,6 +296,34 @@ namespace MassImageCropper
 		private void cbKeepAspectRatio_CheckedChanged(object sender, EventArgs e)
 		{
 			tbYRes.ReadOnly = cbKeepAspectRatio.Checked;
+		}
+
+
+		private void tbFolder_DragEnter(object sender, DragEventArgs e)
+		{
+			if (e.Data.GetDataPresent(DataFormats.FileDrop))
+			{
+				e.Effect = DragDropEffects.Link;
+			}
+		}
+
+
+		private void tbFolder_DragDrop(object sender, DragEventArgs e)
+		{
+			if (e.Data.GetDataPresent(DataFormats.FileDrop))
+			{
+				if (e.Effect == DragDropEffects.Copy ||	e.Effect == DragDropEffects.Move ||	e.Effect == DragDropEffects.Link ||	e.Effect == DragDropEffects.All)
+				{
+					string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+					string directory = files.FirstOrDefault();
+
+					if (Directory.Exists(directory))
+					{
+						TextBox tbFolder = sender as TextBox;
+						tbFolder.Text = directory;
+					}
+				}
+			}
 		}
 
 	}

@@ -49,11 +49,11 @@
 			this.lblImageType = new System.Windows.Forms.Label();
 			this.cbImageType = new System.Windows.Forms.ComboBox();
 			this.panel = new System.Windows.Forms.Panel();
+			this.cbKeepAspectRatio = new System.Windows.Forms.CheckBox();
 			this.lblSmoothing = new System.Windows.Forms.Label();
 			this.cbSmoothing = new System.Windows.Forms.ComboBox();
 			this.menuStrip = new System.Windows.Forms.MenuStrip();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.cbKeepAspectRatio = new System.Windows.Forms.CheckBox();
 			this.panel.SuspendLayout();
 			this.menuStrip.SuspendLayout();
 			this.SuspendLayout();
@@ -90,13 +90,15 @@
 			// 
 			// tbSourceFolder
 			// 
+			this.tbSourceFolder.AllowDrop = true;
 			this.tbSourceFolder.Location = new System.Drawing.Point(112, 40);
 			this.tbSourceFolder.Name = "tbSourceFolder";
 			this.tbSourceFolder.ReadOnly = true;
 			this.tbSourceFolder.Size = new System.Drawing.Size(407, 20);
 			this.tbSourceFolder.TabIndex = 0;
 			this.tbSourceFolder.TabStop = false;
-			this.tbSourceFolder.Text = "C:\\Original Image Source Folder\\";
+			this.tbSourceFolder.DragDrop += new System.Windows.Forms.DragEventHandler(this.tbFolder_DragDrop);
+			this.tbSourceFolder.DragEnter += new System.Windows.Forms.DragEventHandler(this.tbFolder_DragEnter);
 			// 
 			// btnPickSource
 			// 
@@ -128,13 +130,15 @@
 			// 
 			// tbDestFolder
 			// 
+			this.tbDestFolder.AllowDrop = true;
 			this.tbDestFolder.Location = new System.Drawing.Point(112, 66);
 			this.tbDestFolder.Name = "tbDestFolder";
 			this.tbDestFolder.ReadOnly = true;
 			this.tbDestFolder.Size = new System.Drawing.Size(407, 20);
 			this.tbDestFolder.TabIndex = 0;
 			this.tbDestFolder.TabStop = false;
-			this.tbDestFolder.Text = "C:\\Cropped Image Target Folder\\";
+			this.tbDestFolder.DragDrop += new System.Windows.Forms.DragEventHandler(this.tbFolder_DragDrop);
+			this.tbDestFolder.DragEnter += new System.Windows.Forms.DragEventHandler(this.tbFolder_DragEnter);
 			// 
 			// btnPickDestination
 			// 
@@ -258,6 +262,19 @@
 			this.panel.Size = new System.Drawing.Size(624, 232);
 			this.panel.TabIndex = 0;
 			// 
+			// cbKeepAspectRatio
+			// 
+			this.cbKeepAspectRatio.AutoSize = true;
+			this.cbKeepAspectRatio.Checked = true;
+			this.cbKeepAspectRatio.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.cbKeepAspectRatio.Location = new System.Drawing.Point(198, 175);
+			this.cbKeepAspectRatio.Name = "cbKeepAspectRatio";
+			this.cbKeepAspectRatio.Size = new System.Drawing.Size(109, 17);
+			this.cbKeepAspectRatio.TabIndex = 11;
+			this.cbKeepAspectRatio.Text = "Keep aspect ratio";
+			this.cbKeepAspectRatio.UseVisualStyleBackColor = true;
+			this.cbKeepAspectRatio.CheckedChanged += new System.EventHandler(this.cbKeepAspectRatio_CheckedChanged);
+			// 
 			// lblSmoothing
 			// 
 			this.lblSmoothing.AutoSize = true;
@@ -291,19 +308,6 @@
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
 			this.aboutToolStripMenuItem.Text = "About";
 			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-			// 
-			// cbKeepAspectRatio
-			// 
-			this.cbKeepAspectRatio.AutoSize = true;
-			this.cbKeepAspectRatio.Checked = true;
-			this.cbKeepAspectRatio.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.cbKeepAspectRatio.Location = new System.Drawing.Point(198, 175);
-			this.cbKeepAspectRatio.Name = "cbKeepAspectRatio";
-			this.cbKeepAspectRatio.Size = new System.Drawing.Size(109, 17);
-			this.cbKeepAspectRatio.TabIndex = 11;
-			this.cbKeepAspectRatio.Text = "Keep aspect ratio";
-			this.cbKeepAspectRatio.UseVisualStyleBackColor = true;
-			this.cbKeepAspectRatio.CheckedChanged += new System.EventHandler(this.cbKeepAspectRatio_CheckedChanged);
 			// 
 			// frmMassImageCropper
 			// 
