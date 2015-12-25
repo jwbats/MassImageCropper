@@ -63,10 +63,13 @@ namespace MassImageCropper
 			Bitmap bmPicture = new Bitmap(Width, Height, PixelFormat.Format24bppRgb);
 			bmPicture.SetResolution(imgPicture.HorizontalResolution, imgPicture.VerticalResolution);
 
+			bmPicture.MakeTransparent();
+
 			Graphics grPicture = Graphics.FromImage(bmPicture);
 
 			grPicture.InterpolationMode = (InterpolationMode)cbInterpolation.SelectedItem;
-			grPicture.SmoothingMode = (SmoothingMode)cbSmoothing.SelectedItem;
+			grPicture.SmoothingMode     = (SmoothingMode)cbSmoothing.SelectedItem;
+			grPicture.CompositingMode   = CompositingMode.SourceCopy;
 
 			grPicture.DrawImage(imgPicture,
 								new Rectangle(destX, destY, destWidth, destHeight),
