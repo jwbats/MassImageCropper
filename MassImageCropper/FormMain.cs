@@ -17,12 +17,6 @@ namespace MassImageCropper
 		{
 			InitializeComponent();
 
-			cbImageType.Items.Add(ImageFormat.Png);
-			cbImageType.Items.Add(ImageFormat.Gif);
-			cbImageType.Items.Add(ImageFormat.Bmp);
-			cbImageType.Items.Add(ImageFormat.Jpeg);
-			cbImageType.SelectedIndex = cbImageType.Items.Count - 1;
-
 			cbInterpolation.Items.Add(InterpolationMode.High);
 			cbInterpolation.Items.Add(InterpolationMode.HighQualityBilinear);
 			cbInterpolation.Items.Add(InterpolationMode.HighQualityBicubic);
@@ -197,6 +191,30 @@ namespace MassImageCropper
 		}
 
 
+		private ImageFormat GetImageFormat(string filePath)
+		{
+			string extension = Path.GetExtension(filePath).ToLower();
+
+			switch (extension)
+			{
+				case ".jpg"  : return ImageFormat.Jpeg;
+				case ".jpeg" : return ImageFormat.Jpeg;
+				case ".png"  : return ImageFormat.Png;
+				case ".gif"  : return ImageFormat.Gif;
+				case ".bmp"  : return ImageFormat.Bmp;
+				default      : return ImageFormat.Jpeg;
+			}
+		}
+
+
+		private void CreateCodecStuff(out EncoderParameters codecParameters, out ImageCodecInfo codecInfo, ImageFormat imageFormat)
+		{
+			codecParameters          = new EncoderParameters(1);
+			codecParameters.Param[0] = new EncoderParameter(Encoder.Quality, (long)hsbQuality.Value);
+			codecInfo                = FindEncoder(imageFormat);
+		}
+
+
 		private void btnMassCrop_Click(object sender, EventArgs e)
 		{
 			bool bFolders = Directory.Exists(tbSourceFolder.Text)
@@ -218,17 +236,14 @@ namespace MassImageCropper
 
 			if (bFolders && bResolution)
 			{
-				EncoderParameters codecParameters = new EncoderParameters(1);
-				codecParameters.Param[0]          = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, (long)hsbQuality.Value);
-				ImageCodecInfo codecInfo          = FindEncoder((ImageFormat)cbImageType.SelectedItem);
-				List<String> fileSourcePaths      = GetFilesRecursively(tbSourceFolder.Text, codecInfo.FilenameExtension);
+				List<String> fileSourcePaths = GetFilesRecursively(tbSourceFolder.Text, "*.jpg;*.jpeg;*.png;*.gif;*.bmp");
 
 				progressBar.Value   = 0;
 				progressBar.Maximum = fileSourcePaths.Count;
 
 				if (fileSourcePaths.Count > 0)
 				{
-					foreach (String fileSourcePath in fileSourcePaths)
+					foreach (string fileSourcePath in fileSourcePaths)
 					{
 						Bitmap bitmap       = new Bitmap(fileSourcePath);
 						Image image         = Crop(bitmap);
@@ -240,11 +255,17 @@ namespace MassImageCropper
 							Directory.CreateDirectory(fileDestDir);
 						}
 
+						ImageFormat imageFormat = GetImageFormat(fileSourcePath);
+
+						EncoderParameters codecParameters;
+						ImageCodecInfo codecInfo;
+						CreateCodecStuff(out codecParameters, out codecInfo, imageFormat);
+
 						image.Save(fileDestPath, codecInfo, codecParameters);
 						progressBar.Increment(1);
 					}
 				} else {
-					MessageBox.Show("No input files found. Did you select the correct input image type?", "No Input");
+					MessageBox.Show("No input files found.", "No Input");
 				}
 			}
 		}

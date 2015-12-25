@@ -46,8 +46,6 @@
 			this.lblQuality = new System.Windows.Forms.Label();
 			this.cbInterpolation = new System.Windows.Forms.ComboBox();
 			this.lblInterpolation = new System.Windows.Forms.Label();
-			this.lblImageType = new System.Windows.Forms.Label();
-			this.cbImageType = new System.Windows.Forms.ComboBox();
 			this.panel = new System.Windows.Forms.Panel();
 			this.cbKeepAspectRatio = new System.Windows.Forms.CheckBox();
 			this.lblSmoothing = new System.Windows.Forms.Label();
@@ -60,7 +58,7 @@
 			// 
 			// tbXRes
 			// 
-			this.tbXRes.Location = new System.Drawing.Point(112, 172);
+			this.tbXRes.Location = new System.Drawing.Point(112, 141);
 			this.tbXRes.Name = "tbXRes";
 			this.tbXRes.Size = new System.Drawing.Size(37, 20);
 			this.tbXRes.TabIndex = 7;
@@ -70,7 +68,7 @@
 			// 
 			// tbYRes
 			// 
-			this.tbYRes.Location = new System.Drawing.Point(155, 172);
+			this.tbYRes.Location = new System.Drawing.Point(155, 141);
 			this.tbYRes.Name = "tbYRes";
 			this.tbYRes.ReadOnly = true;
 			this.tbYRes.Size = new System.Drawing.Size(37, 20);
@@ -82,7 +80,7 @@
 			// lblResolution
 			// 
 			this.lblResolution.AutoSize = true;
-			this.lblResolution.Location = new System.Drawing.Point(11, 175);
+			this.lblResolution.Location = new System.Drawing.Point(11, 144);
 			this.lblResolution.Name = "lblResolution";
 			this.lblResolution.Size = new System.Drawing.Size(89, 13);
 			this.lblResolution.TabIndex = 0;
@@ -91,7 +89,7 @@
 			// tbSourceFolder
 			// 
 			this.tbSourceFolder.AllowDrop = true;
-			this.tbSourceFolder.Location = new System.Drawing.Point(112, 40);
+			this.tbSourceFolder.Location = new System.Drawing.Point(112, 9);
 			this.tbSourceFolder.Name = "tbSourceFolder";
 			this.tbSourceFolder.ReadOnly = true;
 			this.tbSourceFolder.Size = new System.Drawing.Size(407, 20);
@@ -102,7 +100,7 @@
 			// 
 			// btnPickSource
 			// 
-			this.btnPickSource.Location = new System.Drawing.Point(525, 40);
+			this.btnPickSource.Location = new System.Drawing.Point(525, 9);
 			this.btnPickSource.Name = "btnPickSource";
 			this.btnPickSource.Size = new System.Drawing.Size(94, 20);
 			this.btnPickSource.TabIndex = 2;
@@ -113,7 +111,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(11, 43);
+			this.label3.Location = new System.Drawing.Point(11, 12);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(76, 13);
 			this.label3.TabIndex = 0;
@@ -122,7 +120,7 @@
 			// lblDestFolder
 			// 
 			this.lblDestFolder.AutoSize = true;
-			this.lblDestFolder.Location = new System.Drawing.Point(11, 69);
+			this.lblDestFolder.Location = new System.Drawing.Point(11, 38);
 			this.lblDestFolder.Name = "lblDestFolder";
 			this.lblDestFolder.Size = new System.Drawing.Size(95, 13);
 			this.lblDestFolder.TabIndex = 0;
@@ -131,7 +129,7 @@
 			// tbDestFolder
 			// 
 			this.tbDestFolder.AllowDrop = true;
-			this.tbDestFolder.Location = new System.Drawing.Point(112, 66);
+			this.tbDestFolder.Location = new System.Drawing.Point(112, 35);
 			this.tbDestFolder.Name = "tbDestFolder";
 			this.tbDestFolder.ReadOnly = true;
 			this.tbDestFolder.Size = new System.Drawing.Size(407, 20);
@@ -142,7 +140,7 @@
 			// 
 			// btnPickDestination
 			// 
-			this.btnPickDestination.Location = new System.Drawing.Point(525, 66);
+			this.btnPickDestination.Location = new System.Drawing.Point(525, 35);
 			this.btnPickDestination.Name = "btnPickDestination";
 			this.btnPickDestination.Size = new System.Drawing.Size(94, 20);
 			this.btnPickDestination.TabIndex = 3;
@@ -152,7 +150,7 @@
 			// 
 			// btnMassCrop
 			// 
-			this.btnMassCrop.Location = new System.Drawing.Point(525, 198);
+			this.btnMassCrop.Location = new System.Drawing.Point(525, 167);
 			this.btnMassCrop.Name = "btnMassCrop";
 			this.btnMassCrop.Size = new System.Drawing.Size(94, 23);
 			this.btnMassCrop.TabIndex = 9;
@@ -162,7 +160,7 @@
 			// 
 			// progressBar
 			// 
-			this.progressBar.Location = new System.Drawing.Point(14, 198);
+			this.progressBar.Location = new System.Drawing.Point(14, 167);
 			this.progressBar.Name = "progressBar";
 			this.progressBar.Size = new System.Drawing.Size(505, 23);
 			this.progressBar.TabIndex = 0;
@@ -170,7 +168,7 @@
 			// hsbQuality
 			// 
 			this.hsbQuality.LargeChange = 1;
-			this.hsbQuality.Location = new System.Drawing.Point(112, 92);
+			this.hsbQuality.Location = new System.Drawing.Point(112, 61);
 			this.hsbQuality.Minimum = 1;
 			this.hsbQuality.Name = "hsbQuality";
 			this.hsbQuality.Size = new System.Drawing.Size(368, 20);
@@ -180,7 +178,7 @@
 			// 
 			// tbQuality
 			// 
-			this.tbQuality.Location = new System.Drawing.Point(483, 92);
+			this.tbQuality.Location = new System.Drawing.Point(483, 61);
 			this.tbQuality.Name = "tbQuality";
 			this.tbQuality.Size = new System.Drawing.Size(36, 20);
 			this.tbQuality.TabIndex = 4;
@@ -191,7 +189,7 @@
 			// lblQuality
 			// 
 			this.lblQuality.AutoSize = true;
-			this.lblQuality.Location = new System.Drawing.Point(11, 95);
+			this.lblQuality.Location = new System.Drawing.Point(11, 64);
 			this.lblQuality.Name = "lblQuality";
 			this.lblQuality.Size = new System.Drawing.Size(42, 13);
 			this.lblQuality.TabIndex = 0;
@@ -200,7 +198,7 @@
 			// cbInterpolation
 			// 
 			this.cbInterpolation.FormattingEnabled = true;
-			this.cbInterpolation.Location = new System.Drawing.Point(112, 118);
+			this.cbInterpolation.Location = new System.Drawing.Point(112, 87);
 			this.cbInterpolation.Name = "cbInterpolation";
 			this.cbInterpolation.Size = new System.Drawing.Size(407, 21);
 			this.cbInterpolation.TabIndex = 5;
@@ -208,28 +206,11 @@
 			// lblInterpolation
 			// 
 			this.lblInterpolation.AutoSize = true;
-			this.lblInterpolation.Location = new System.Drawing.Point(11, 121);
+			this.lblInterpolation.Location = new System.Drawing.Point(11, 90);
 			this.lblInterpolation.Name = "lblInterpolation";
 			this.lblInterpolation.Size = new System.Drawing.Size(68, 13);
 			this.lblInterpolation.TabIndex = 0;
 			this.lblInterpolation.Text = "Interpolation:";
-			// 
-			// lblImageType
-			// 
-			this.lblImageType.AutoSize = true;
-			this.lblImageType.Location = new System.Drawing.Point(11, 16);
-			this.lblImageType.Name = "lblImageType";
-			this.lblImageType.Size = new System.Drawing.Size(92, 13);
-			this.lblImageType.TabIndex = 0;
-			this.lblImageType.Text = "Input image Type:";
-			// 
-			// cbImageType
-			// 
-			this.cbImageType.FormattingEnabled = true;
-			this.cbImageType.Location = new System.Drawing.Point(112, 13);
-			this.cbImageType.Name = "cbImageType";
-			this.cbImageType.Size = new System.Drawing.Size(407, 21);
-			this.cbImageType.TabIndex = 1;
 			// 
 			// panel
 			// 
@@ -237,9 +218,7 @@
 			this.panel.Controls.Add(this.cbKeepAspectRatio);
 			this.panel.Controls.Add(this.lblSmoothing);
 			this.panel.Controls.Add(this.cbSmoothing);
-			this.panel.Controls.Add(this.lblImageType);
 			this.panel.Controls.Add(this.tbXRes);
-			this.panel.Controls.Add(this.cbImageType);
 			this.panel.Controls.Add(this.tbYRes);
 			this.panel.Controls.Add(this.lblInterpolation);
 			this.panel.Controls.Add(this.lblResolution);
@@ -259,7 +238,7 @@
 			this.panel.Location = new System.Drawing.Point(0, 24);
 			this.panel.Margin = new System.Windows.Forms.Padding(0);
 			this.panel.Name = "panel";
-			this.panel.Size = new System.Drawing.Size(624, 232);
+			this.panel.Size = new System.Drawing.Size(624, 202);
 			this.panel.TabIndex = 0;
 			// 
 			// cbKeepAspectRatio
@@ -267,7 +246,7 @@
 			this.cbKeepAspectRatio.AutoSize = true;
 			this.cbKeepAspectRatio.Checked = true;
 			this.cbKeepAspectRatio.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.cbKeepAspectRatio.Location = new System.Drawing.Point(198, 175);
+			this.cbKeepAspectRatio.Location = new System.Drawing.Point(198, 144);
 			this.cbKeepAspectRatio.Name = "cbKeepAspectRatio";
 			this.cbKeepAspectRatio.Size = new System.Drawing.Size(109, 17);
 			this.cbKeepAspectRatio.TabIndex = 11;
@@ -278,7 +257,7 @@
 			// lblSmoothing
 			// 
 			this.lblSmoothing.AutoSize = true;
-			this.lblSmoothing.Location = new System.Drawing.Point(11, 148);
+			this.lblSmoothing.Location = new System.Drawing.Point(11, 117);
 			this.lblSmoothing.Name = "lblSmoothing";
 			this.lblSmoothing.Size = new System.Drawing.Size(60, 13);
 			this.lblSmoothing.TabIndex = 0;
@@ -287,7 +266,7 @@
 			// cbSmoothing
 			// 
 			this.cbSmoothing.FormattingEnabled = true;
-			this.cbSmoothing.Location = new System.Drawing.Point(112, 145);
+			this.cbSmoothing.Location = new System.Drawing.Point(112, 114);
 			this.cbSmoothing.Name = "cbSmoothing";
 			this.cbSmoothing.Size = new System.Drawing.Size(407, 21);
 			this.cbSmoothing.TabIndex = 6;
@@ -313,15 +292,15 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(624, 256);
+			this.ClientSize = new System.Drawing.Size(624, 226);
 			this.Controls.Add(this.panel);
 			this.Controls.Add(this.menuStrip);
 			this.HelpButton = true;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStrip;
 			this.MaximizeBox = false;
-			this.MaximumSize = new System.Drawing.Size(640, 295);
-			this.MinimumSize = new System.Drawing.Size(640, 295);
+			this.MaximumSize = new System.Drawing.Size(640, 265);
+			this.MinimumSize = new System.Drawing.Size(640, 265);
 			this.Name = "frmMassImageCropper";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Mass Image Cropper,  by Jay @ Xandralite.net";
@@ -353,8 +332,6 @@
         private System.Windows.Forms.Label lblQuality;
         private System.Windows.Forms.ComboBox cbInterpolation;
         private System.Windows.Forms.Label lblInterpolation;
-        private System.Windows.Forms.Label lblImageType;
-        private System.Windows.Forms.ComboBox cbImageType;
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
